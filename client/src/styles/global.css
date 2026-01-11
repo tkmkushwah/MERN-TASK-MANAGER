@@ -1,0 +1,25 @@
+:root {
+  --primary: #2563eb;
+  --dark: #0f172a;
+  --bg: #f1f5f9;
+  --white: #ffffff;
+  --border: #e5e7eb;
+  --danger: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

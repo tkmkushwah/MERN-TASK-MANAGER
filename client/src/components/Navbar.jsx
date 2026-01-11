@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import "../styles/navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -10,46 +11,32 @@ function Navbar() {
   };
 
   return (
-    <nav style={styles.nav}>
+    <nav className="navbar">
+      {/* Brand / App Name */}
       <h3>MERN Task App</h3>
 
-      <div>
+      {/* Links */}
+      <div className="nav-left">
         {!token ? (
           <>
-            <Link style={styles.link} to="/">Login</Link>
-            <Link style={styles.link} to="/register">Register</Link>
+            <Link to="/">Login</Link>
+            <Link to="/register">Register</Link>
           </>
         ) : (
           <>
-            <Link style={styles.link} to="/dashboard">Dashboard</Link>
-            <button onClick={logout} style={styles.button}>Logout</button>
+            <Link to="/dashboard">Dashboard</Link>
           </>
         )}
       </div>
+
+      {/* Logout Button */}
+      {token && (
+        <div className="nav-right">
+          <button onClick={logout}>Logout</button>
+        </div>
+      )}
     </nav>
   );
 }
-
-const styles = {
-  nav: {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "10px 20px",
-    background: "#222",
-    color: "white"
-  },
-  link: {
-    marginRight: "15px",
-    color: "white",
-    textDecoration: "none"
-  },
-  button: {
-    background: "red",
-    color: "white",
-    border: "none",
-    padding: "5px 10px",
-    cursor: "pointer"
-  }
-};
 
 export default Navbar;

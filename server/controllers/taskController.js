@@ -49,3 +49,28 @@ export const deleteTask = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// update task
+export const updateTask = async (req, res) => {
+  try {
+    const { title } = req.body;
+
+    const task = await Task.findById(req.params.id);
+
+    if (!task) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+
+    // ensure user owns the task
+    if (task.user.toString() !== req.user.id) {
+      return res.status(401).json({ message: "Not authorized" });
+    }
+
+    task.title = title || task.title;
+    const updatedTask = await task.save();
+
+    res.json(updatedTask);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to update task" });
+  }
+};

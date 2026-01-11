@@ -1,0 +1,67 @@
+/* Navbar container */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Brand left, links right */
+  background-color: #ffffff;
+  padding: 0 40px;
+  height: 64px;
+  border-bottom: 1px solid #e5e7eb; /* subtle border */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Brand / app name */
+.navbar h3 {
+  color: #2563eb; /* primary blue */
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Links container */
+.navbar div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Links style */
+.navbar a {
+  text-decoration: none;
+  color: #334155; /* dark gray */
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: #2563eb; /* blue hover */
+}
+
+/* Logout button */
+.navbar button {
+  background-color: #ef4444; /* red */
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  opacity: 0.9;
+}
+
+/* Responsive spacing for small screens */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 20px;
+  }
+
+  .navbar div {
+    margin-top: 10px;
+    gap: 15px;
+  }
+}
