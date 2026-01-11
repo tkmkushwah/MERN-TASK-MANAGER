@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Environment files
+.env
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build / dist folders
+dist/
+build/
+
+# Mac OS specific
+.DS_Store
+
+# Vite / React
+.vite/

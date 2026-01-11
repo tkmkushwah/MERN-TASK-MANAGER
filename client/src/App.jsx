@@ -1,15 +1,24 @@
-import { useState } from 'react'
-
-
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import Navbar from "./components/Navbar";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-    <h1 onClick={() => setCount(count + 1)}>Vite + React</h1>
-    <h2>Count is {count}</h2>
+    <Navbar />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />  
+        {/*react automatically reatds it as 
+        ProtectedRoute({
+        children: <Dashboard />
+         }) so children is dashboard component which is passed as props in protected routes */}
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App; 
